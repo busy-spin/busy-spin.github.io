@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Writing a tech-blog in markdown"
-date:   2022-05-18 23:56:20 +0800
+date:   2022-05-17 23:56:20 +0800
 categories: jekyll
 ---
 
