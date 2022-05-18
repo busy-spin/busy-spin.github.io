@@ -28,7 +28,7 @@ twitter_username: isurudevj
 github_username:  isurudevj
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
 
