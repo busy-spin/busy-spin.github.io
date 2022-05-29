@@ -2,7 +2,7 @@
 layout: post
 title:  "Most fun way to run k8s in local"
 date:   2022-05-18 23:56:20 +0800
-categories: k8s
+categories: top k8s
 author: Isuru
 ---
 
