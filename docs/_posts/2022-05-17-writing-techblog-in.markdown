@@ -3,6 +3,7 @@ layout: post
 title:  "Writing a tech-blog in markdown"
 date:   2022-05-17 23:56:20 +0800
 categories: jekyll
+author: Isuru
 ---
 
 I'm love the simplicity of markdown. It's the de facto documentation method preferred by coders like me.
