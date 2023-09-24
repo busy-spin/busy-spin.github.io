@@ -31,7 +31,7 @@ plugins:
   - jekyll-feed
 
 header_pages:
-  - k8s.md
+  - performance-engineering.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
