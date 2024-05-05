@@ -17,7 +17,7 @@ Github offers the [GitHub Actions](https://docs.github.com/en/actions) where we 
 
 ## How
 
-1. Create sonatype account, get credentials to publish maven artefacts
+1. Create sonatype account, get token to publish maven artefacts
 2. Claim the namespace so you can publish under maven `<groupId>`
 3. Create gpg keys, include gpg private key in your build and add the public key in to key server, this is to perform integrity checks for libraries you publish 
 4. Set up secrets for your repository including sonatype username, token, gpg private key, gpg passphrase
@@ -44,10 +44,43 @@ As your library start getting traction, more and more people would want to colla
 It's easy to centralize the publishing instead of all contributors sharing GPG keys and other secrets and 
 settings up the deployment related settings in their individual systems. 
 
-## References
-[Github Actions](https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-maven)
+## Steps
+
+1. Create sonatype account and get token
+
+Use following link to create account in Sonatype and create user token.
+
 [Generate Sonatype User Token](https://central.sonatype.com/account)
+
+2. Claim your namespace
+
+Use the following link to claim the namespace which is your maven `<groupId>`
+
 [Claim Namespace](https://central.sonatype.com/publishing/namespaces)
+
+3. Generate GPG key
+
+Use following guide on generating gpg-key pair and publishing the public key to gpg key server
+
 [Generate GPG Keys](https://central.sonatype.org/publish/requirements/gpg/)
+
+Use following command to copy your GPG private key, replace `id` with your GPG key pair id.
+GPG private key and GPG passphrase will be later uploaded in to GitHub secrets.
+
+```shell
+gpg --armor --export-secret-key <id>
+```
+
+4. Setting up secrets
+
+Use following guide on more details on settings up secrets.
+
 [Adding Github Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
+
+To support the GitHub Actions that I will later set up. I need to configure four secrets
+
+
+
+## References
+
 [Publishing Deployment](https://central.sonatype.com/publishing/deployments)
