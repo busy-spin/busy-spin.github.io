@@ -134,6 +134,55 @@ jobs:
 
 ```
 
+Update you `pom.xml` to include gpg and sonatype publisher plugins
+
+```xml
+    <profiles>
+    <profile>
+        <id>publish-sonatype</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>0.4.0</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <publishingServerId>maven</publishingServerId>
+                        <tokenAuth>true</tokenAuth>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.6</version>
+                    <executions>
+                        <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>sign</goal>
+                            </goals>
+                            <configuration>
+                                <gpgArguments>
+                                    <arg>--pinentry-mode</arg>
+                                    <arg>loopback</arg>
+                                </gpgArguments>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
+```
+
+Execute the GitHub Action 
+
+![GitHub Action Run](/assets/img/2024-05-06_01/run_action.png)
+
+
 Lastly login to Sonatype to publish the uploaded library.
 
 [Publishing Deployment](https://central.sonatype.com/publishing/deployments)
