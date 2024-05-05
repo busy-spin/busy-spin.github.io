@@ -32,6 +32,7 @@ plugins:
 
 header_pages:
   - performance-engineering.md
+  - scratch.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
