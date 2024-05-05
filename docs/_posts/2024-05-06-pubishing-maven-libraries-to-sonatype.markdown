@@ -38,7 +38,7 @@ Keep the private key with you (In this case keep it in GitHub Secrets).
 And publish the public key to gpg key server. When you publish the artefacts, the artefacts will be signed using your private key. 
 And Sonatype server will verify using the published public key.
 
-### Why using GitHub Actions / GitHub Secrets
+### GitHub Actions / GitHub Secrets
 
 As your library start getting traction, more and more people would want to collaborate with you. 
 It's easy to centralize the publishing instead of all contributors sharing GPG keys and other secrets and 
