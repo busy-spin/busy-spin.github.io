@@ -52,13 +52,15 @@ Use following link to create account in Sonatype and create user token.
 
 [Generate Sonatype User Token](https://central.sonatype.com/account)
 
-![Sonatype Token](/assets/img/2024-05-06_01/github_secrets.png)
+![Sonatype Token](/assets/img/2024-05-06_01/account_and_token.png)
 
 ### Claim your namespace
 
 Use the following link to claim the namespace which is your maven `<groupId>`
 
 [Claim Namespace](https://central.sonatype.com/publishing/namespaces)
+
+![Cliam Namespace](/assets/img/2024-05-06_01/claim_namespace.png)
 
 ### Generate GPG key
 
@@ -73,16 +75,67 @@ GPG private key and GPG passphrase will be later uploaded in to GitHub secrets.
 gpg --armor --export-secret-key <id>
 ```
 
-4. Setting up secrets
+### Setting up secrets
 
 Use following guide on more details on settings up secrets.
 
 [Adding Github Secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions)
 
-To support the GitHub Actions that I will later set up. I need to configure four secrets
+I need to configure four secrets to support the GitHub Actions that I will later set up.
 
+![Secrets](/assets/img/2024-05-06_01/github_secrets.png)
 
+Secret          | Description
+---             | ---
+OSSRH_USERNAME  | Sonatype token username
+OSSRH_TOKEN     | Sonatype token
+GPG_PASSPHRASE  | Passphrase use while generating GPG keypair
+GPG_PRIVATE_KEY | GPG private key which we got using `--export-secret-key` option
 
-## References
+### GitHub acton to deploy to Sonatype
+
+Set up [GitHub Actions](https://docs.github.com/en/actions) to deploy library to Sonatype 
+
+```yaml
+name: Publish package to the Maven Central Repository
+on: [workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Set up Apache Maven Central
+        uses: actions/setup-java@v4
+        with: # running setup-java again overwrites the settings.xml
+          distribution: 'temurin'
+          java-version: '17'
+          server-id: maven # Value of the distributionManagement/repository/id field of the pom.xml
+          server-username: MAVEN_USERNAME # env variable for username in deploy
+          server-password: MAVEN_CENTRAL_TOKEN # env variable for token in deploy
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }} # Value of the GPG private key to import
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE # env variable for GPG private key passphrase
+
+      - name: Publish to Apache Maven Central
+        run:  mvn --batch-mode deploy -P publish-sonatype
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_CENTRAL_TOKEN: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+```
+
+Lastly login to Sonatype to publish the uploaded library.
 
 [Publishing Deployment](https://central.sonatype.com/publishing/deployments)
+
+![Publish Sonatype](/assets/img/2024-05-06_01/publish_sonatype.png)
