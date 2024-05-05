@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Publishing libraries to Sonatype"
-date:   2024-05-05 23:56:20 +0800
-categories: top opensource
+date:   2024-05-05 18:00:00 +0800
+categories: top performance-engineering
 author: Isuru
 ---
 
