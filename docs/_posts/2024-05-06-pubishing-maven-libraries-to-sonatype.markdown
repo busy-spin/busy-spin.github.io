@@ -46,19 +46,21 @@ settings up the deployment related settings in their individual systems.
 
 ## Steps
 
-1. Create sonatype account and get token
+### Create sonatype account and get token
 
 Use following link to create account in Sonatype and create user token.
 
 [Generate Sonatype User Token](https://central.sonatype.com/account)
 
-2. Claim your namespace
+![Sonatype Token](/assets/img/2024-05-06_01/github_secrets.png)
+
+### Claim your namespace
 
 Use the following link to claim the namespace which is your maven `<groupId>`
 
 [Claim Namespace](https://central.sonatype.com/publishing/namespaces)
 
-3. Generate GPG key
+### Generate GPG key
 
 Use following guide on generating gpg-key pair and publishing the public key to gpg key server
 
