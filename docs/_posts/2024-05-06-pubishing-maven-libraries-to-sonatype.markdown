@@ -139,3 +139,7 @@ Lastly login to Sonatype to publish the uploaded library.
 [Publishing Deployment](https://central.sonatype.com/publishing/deployments)
 
 ![Publish Sonatype](/assets/img/2024-05-06_01/publish_sonatype.png)
+
+# Refrences
+
+Refer to my [aeron-maven-plugins](https://github.com/busy-spin/aeron-maven-plugins) GitHub project.
