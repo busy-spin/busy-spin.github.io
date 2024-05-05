@@ -31,7 +31,7 @@ Github offers the [GitHub Actions](https://docs.github.com/en/actions) where we 
 All my libraries go under `<groupId>io.github.busy-spin</groupId>` I should claim this namespace in Sonatype. 
 Pretty much similar to how you get a username in GitHub or blog-space.
 
-### GPG private key and public key
+### Generate GPG private key and public key
 
 Standard why to perform a integrity check for your libraries is to generate GPG key pair. 
 Keep the private key with you (In this case keep it in GitHub Secrets).
