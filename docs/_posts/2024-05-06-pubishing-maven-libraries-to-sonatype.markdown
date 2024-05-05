@@ -29,7 +29,7 @@ Github offers the [GitHub Actions](https://docs.github.com/en/actions) where we 
 ### Claiming your namespace
 
 All my libraries go under `<groupId>io.github.busy-spin</groupId>` I should claim this namespace in Sonatype. 
-Pretty much similar to how you get a username or blog-space.
+Pretty much similar to how you get a username in GitHub or blog-space.
 
 ### GPG private key and public key
 
