@@ -6,7 +6,7 @@ categories: top scratch
 author: Isuru
 ---
 
-# Writing blogs using github pages
+# Writing blogs using GitHub pages
 
 As GitHub-pages is a way of hosting [Jekyll](https://jekyllrb.com/) based static sites, 
 I decided to use it to host my tech blog. After all we are all living in everything as code age. 
