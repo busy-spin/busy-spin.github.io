@@ -23,7 +23,8 @@ This post is a **TL;DR** and a compilation of sources for more details.
 
 # Solution 1 - Self Hosting
 
-[Jekyll](https://jekyllrb.com/) is site generator. You can start with a [theme](https://jekyllrb.com/docs/themes/) available as well. 
+[Jekyll](https://jekyllrb.com/) is site generator. You can write content for your site using markdown format. 
+There are many of [themes](https://jekyllrb.com/docs/themes/) available as well to bootstrap your site code. 
 I use to host my blog by running jekyll server on Amazon EC2 instance and using 
 AWS Route 53 DNS server to route traffic to the public IP of my EC2 instance. 
 To enable HTTPS I used [Let's Encrypt](https://letsencrypt.org/) to get a server certificate which is valid for 3 months.
