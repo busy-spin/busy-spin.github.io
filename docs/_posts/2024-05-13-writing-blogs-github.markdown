@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Web-log (a.k.a blog) using GitHub pages"
-date:   2024-05-05 14:00:00 +0800
+date:   2024-05-13 14:00:00 +0800
 categories: top scratch
 author: Isuru
 ---
