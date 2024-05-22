@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Bloggers to follow"
-date:   2024-05-19 13:00:00 +0800
+date:   2024-07-19 13:00:00 +0800
 categories: scratch
 author: Isuru
 ---
