@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Agrona Idle Strategy - Exponential Back Off"
+title:  "Agrona Idle Strategy"
 date:   2024-05-23 06:00:00 +0800
 categories: performance-engineering top
 author: Isuru
