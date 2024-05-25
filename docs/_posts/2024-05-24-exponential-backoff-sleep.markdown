@@ -156,7 +156,7 @@ But it may be also impossible to predict how work count in one duty cycle could 
 There are many Idle wait strategies Agrona provide to cater different use cases. You can use them to be more CPU conservative or less CPU conservative. 
 Choice is really up to you. Each come with their own perks. 
 
-However, decoupling the CPU conservativeness from business logic in my opinion is what makes Agrona Agent's standout against other threading libraries. 
+However, decoupling the CPU conservativeness from business logic in my opinion is what makes Agrona Agent's standout among other threading libraries. 
 
 # Writing Custom Idle Wait Strategy
 
