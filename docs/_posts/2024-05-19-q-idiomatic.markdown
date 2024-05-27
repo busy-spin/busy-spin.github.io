@@ -63,7 +63,7 @@ q)
 
 This statement is interpreted as 
 
-1. a assigned to 42
+1. a is assigned to 42
 2. add 1 to a
 3. Assign the result to b
 4. show value of b
@@ -188,6 +188,41 @@ q)(&\) list1
 1 1 -9 -9 -9 -9 -9 -9 -9
 ```
 
-### Overload of Over
+### Table - A Flipped dictionary
 
+Dictionary is composed of two list with same length. 
 
+Imaging dictionary with two list first list each item is a symbol.
+And each item in the second list is a list as well. All these list have the same length as well. When you flip such dictionary you get a table. 
+
+Example:
+
+Dictionary `c1`c2!(10 20 30; 1.1 1.2 1.3) is two list of same length `c1`c2 and (10 20 30; 1.1 1.2 1.3)
+Items in the second list is lists as well (10 20 30) and (1.1 1.2 1.3)
+
+```shell
+q)flip `c1`c2!(10 20 30; 1.1 1.2 1.3)
+c1 c2
+------
+10 1.1
+20 1.2
+30 1.3
+```
+
+```shell
+q)dict1:`c1`c2!(1 2 3; `aeron`artio`sbe)
+q)
+q)flip dict1
+c1 c2   
+--------
+1  aeron
+2  artio
+3  sbe  
+q)
+q)stack_table[`c1]
+1 2 3
+q)stack_table[0]
+c1| 1
+c2| `aeron
+q)
+```
