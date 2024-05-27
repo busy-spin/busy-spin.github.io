@@ -161,6 +161,15 @@ q)({[x;y] x+y}/) 1 2 3
 6
 ```
 
+Overload of over to apply function specified amount of times
+
+Here the `{[x] x, sum -2#x}` is applied on `10` times on list `1 1` 
+```shell
+q)10 {[x] x, sum -2#x}/ 1 1 
+1 1 2 3 5 8 13 21 34 55 89 144
+```
+
+
 ### Scan
 
 Scan is sibling of the over, where list with intermediate accumulation value thus far  
@@ -179,5 +188,6 @@ q)(&\) list1
 1 1 -9 -9 -9 -9 -9 -9 -9
 ```
 
+### Overload of Over
 
 
