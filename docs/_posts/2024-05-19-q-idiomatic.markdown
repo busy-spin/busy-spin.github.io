@@ -25,7 +25,7 @@ Like this wise monk said, **empty your cup**.
 
 # Q-uirky 101
 
-I always tell this joke that Q stands for quirky. This post is not about comprehensive guide for all data structures utility methods Q has.
+I always tell this joke that Q stands for quirky. This post is not about comprehensive guide for all data structures utility methods Q has to offer.
 But to illustrate the Q-uirkiness, the simplicity behind this sophisticated language.
 
 ![quirky](/assets/img/kdb-q/quirky.gif)
@@ -68,7 +68,7 @@ This statement is interpreted as
 3. Assign the result to b
 4. show value of b
 
-# Temporal types Date & Timespan
+# Temporal types - Date & Timespan
 
 Date are represented using integers. 
 2000.01.01 is the magic day which has the integer value 0.
@@ -98,13 +98,12 @@ q)
 
 Only base data structure Q has is list. All Other data structures are derived using list.
 
-List
 ```shell
 q)1 2 3
 1 2 3
 ```
 
-For an example dictionary data structure can be viewed as two list with same length. 
+For an example **dictionary** data structure can be viewed as two list with same length. 
 
 ```shell
 q)`a`b`c!1 2 3
@@ -113,3 +112,72 @@ b| 2
 c| 3
 q)
 ```
+
+# Functions
+
+## Definitions & Invocation
+
+Defining functions has similar anatomy to list.
+
+Let's say you are task with writing function to get sum of square of two value.
+
+```shell
+q)pyth:{[x;y] a:x*x;b:y*y;a+b}
+q)pyth[3;4]
+25
+```
+
+Function signature for arguments is a list
+```shell
+[x;y]
+```
+
+Expressions and statements are also a list 
+```shell
+a:x*x;b:y*y;a+b
+```
+
+And invoking function with arguments, the arguments are passed as a list
+```shell
+[3;4]
+```
+
+## Iterator
+
+### Over operator
+
+In q **/** is called the over, where function is applied and accumulated to a list.
+`{[x;y] x+y}` is the function, and applied to list `(1; 2; 3)` and accumulated with `0` as the base value.
+
+```shell
+q)0 {[x;y] x+y}/ 1 2 3
+6
+```
+
+over without the base value.
+
+```shell
+q)({[x;y] x+y}/) 1 2 3
+6
+```
+
+### Scan
+
+Scan is sibling of the over, where list with intermediate accumulation value thus far  
+
+**&** returns the smaller value of two operators
+```shell
+q)1 & 2
+1
+```
+
+Scan returns a list of smallest value thus far found in the original list
+
+```shell
+q)list1:1 2 -9 4 5 10 0 2 3
+q)(&\) list1 
+1 1 -9 -9 -9 -9 -9 -9 -9
+```
+
+
+
