@@ -30,8 +30,6 @@ But to illustrate the Q-uirkiness, the simplicity behind this sophisticated lang
 
 ![quirky](/assets/img/kdb-q/quirky.gif)
 
-# 5 minutes crash course for Q
-
 ## Variable assignment 
 
 **=** is the test operator
@@ -68,7 +66,7 @@ This statement is interpreted as
 3. Assign the result to b
 4. show value of b
 
-# Temporal types - Date & Timespan
+## Temporal types - Date & Timespan
 
 Date are represented using integers. 
 2000.01.01 is the magic day which has the integer value 0.
@@ -113,9 +111,9 @@ c| 3
 q)
 ```
 
-# Functions
+## Functions
 
-## Definitions & Invocation
+### Definitions & Invocation
 
 Defining functions has similar anatomy to list.
 
@@ -142,9 +140,7 @@ And invoking function with arguments, the arguments are passed as a list
 [3;4]
 ```
 
-## Iterator
-
-### Over operator
+### Over
 
 In q **/** is called the over, where function is applied and accumulated to a list.
 `{[x;y] x+y}` is the function, and applied to list `(1; 2; 3)` and accumulated with `0` as the base value.
@@ -172,13 +168,7 @@ q)10 {[x] x, sum -2#x}/ 1 1
 
 ### Scan
 
-Scan is sibling of the over, where list with intermediate accumulation value thus far  
-
-**&** returns the smaller value of two operators
-```shell
-q)1 & 2
-1
-```
+Scan is sibling of the over, where list with intermediate accumulation value thus far is created from the original list
 
 Scan returns a list of smallest value thus far found in the original list
 
@@ -188,7 +178,7 @@ q)(&\) list1
 1 1 -9 -9 -9 -9 -9 -9 -9
 ```
 
-### Table - A Flipped dictionary
+## Table - A Flipped dictionary
 
 Dictionary is composed of two list with same length. 
 
