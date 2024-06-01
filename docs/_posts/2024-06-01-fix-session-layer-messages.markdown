@@ -10,4 +10,4 @@ author: Isuru
 
 [FIX Session Layer Test Cases](https://www.fixtrading.org/standards/fix-session-layer/)
 
-[FIX Session Layer Complete Refrence](https://www.fixtrading.org/standards/fix-session-layer-online/)
+[FIX Session Layer Complete References](https://www.fixtrading.org/standards/fix-session-layer-online/)
