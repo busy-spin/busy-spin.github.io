@@ -6,6 +6,26 @@ categories: top
 author: Isuru
 ---
 
+# Session Layer Definitions 
+
+## Retransmission Gap-Fill and Resend
+
+## in-band vs out-of-band communication
+
+## TestRequestThreshold, SendingTimeThreshold , LogOutAckThreshold
+
+# Establishing Connection 
+
+1. Transport Layer Connection
+2. Acceptance with optional authentication
+3. Message synchronization 
+
+
+# Testing the spec
+
+## Heartbeat interval determination
+
+
 # FIX Protocol Session Layer Test Cases QuickFixJ
 
 [FIX Session Layer Test Cases](https://www.fixtrading.org/standards/fix-session-layer/)
