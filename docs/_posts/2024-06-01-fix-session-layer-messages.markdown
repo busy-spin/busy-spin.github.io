@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "FIX Protocol Session Layer Test Cases with QuickFixJ"
+title:  "QuickFixJ - FIX Protocol Session Layer Implementation"
 date:   2024-05-23 06:00:00 +0800
 categories: top
 author: Isuru
@@ -25,8 +25,18 @@ author: Isuru
 
 ## Heartbeat interval determination
 
+QuickFIXJ implementation of heart beat interval determination, is to specify it in the HeartBtInt(108) tag of the logon request (35=A) send by the initiator.
+This is as per FIX session layer implementation guide. Although its worth noting the session layer specification allow other methods as well. 
 
-# FIX Protocol Session Layer Test Cases QuickFixJ
+[QFJ Configuration - Initiator](https://www.quickfixj.org/usermanual/2.3.0/usage/configuration.html#Initiator)
+
+Configuration   | Description                                              | Values
+---             |----------------------------------------------------------| ---
+HeartBtInt      | Heartbeat interval in seconds. Only used for initiators.	|  positive integer	
+
+
+
+# References
 
 [FIX Session Layer Test Cases](https://www.fixtrading.org/standards/fix-session-layer/)
 
