@@ -30,15 +30,24 @@ Such as **NextNumIn**, **NextNumOut***, **Retransmission**, **Gap-Fill** and **R
 
 Image Reference - [Session Across Sequential Connections](https://www.fixtrading.org/standards/fix-session-layer-online/)
 
-Even though FIX session usually exists for agreed time-span by two peers (acceptor and initiator). It can be weekly or daily sessions. 
+FIX session usually exists for agreed time-span by two peers (acceptor and initiator). It can be weekly or daily sessions. 
 This weekly and daily session timing are agreed by **out-of-band** communications. Which means no session layer message will specify the duration of the session.
-Which we called the **in-band** communication. But two counterparties agree upon session timing as part of their service level agreement. 
+Which we called the **in-band** communication. Two counterparties agree upon session timing as part of their rules of engagement. 
 
-Since I briefly mention in-band communication. Example for **in-band** communication is heart beat interval. Which used by peers to check on each other's live-ness.
-HeartBtInt(tag 108) is set in initiators logon request (35=A) to specify this value. Hence, its in-band communication. 
+Since I briefly mention **in-band** communication. Example for **in-band** communication is the heart beat interval. 
+Which used by peers to check on each other's live-ness.
+HeartBtInt(tag 108) is set in initiators logon request (35=A) to specify this value. Hence, its **in-band** communication. 
 
 
 ## Important out-of-band parameters 
+
+Following out-of-band parameters are important to the session layer. 
+
+Configuration               | Description                                              
+---                         |---
+TestRequestThreshold        | Amount of time expressed as a multiplier of heartbeat interval before TestRequest(35=1) send to the peer.		
+SendingTimeThreshold        | Amount of time expressed in seconds in which SendingTime(tag 52) in an inbound message can differ from system time of the receiving peer. 
+LogOutAckThreshold          | Amount of time express in seconds where FIX peer who has sent Logout(35=5) will wait for its peer to reply with Acknowledgement, if execeed it will terminate the transport layer connection. 
 
 TestRequestThreshold, SendingTimeThreshold , LogOutAckThreshold
 
