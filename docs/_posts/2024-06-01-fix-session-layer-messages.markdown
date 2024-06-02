@@ -1,18 +1,46 @@
 ---
 layout: post
 title:  "QuickFixJ - FIX Protocol Session Layer Implementation"
-date:   2024-05-23 06:00:00 +0800
+date:   2024-06-02 06:00:00 +0800
 categories: top
 author: Isuru
 ---
 
-# Session Layer Definitions 
+# FIX Protocol Session Layer 
 
-## Retransmission Gap-Fill and Resend
+FIX protocol messages are divided into two types. 
 
-## in-band vs out-of-band communication
+1. Session Layer Messages
+2. Application Messages 
 
-## TestRequestThreshold, SendingTimeThreshold , LogOutAckThreshold
+Session Layer Messages are for establishing, recovering and terminating FIX session. 
+While application messages are to carry out business purposes such as buy, sell, sending/subscribing market data or sending execution reports. 
+
+FIX protocol session layer is a realization of layer 5 session layer of OSI model.
+
+![OSI Session Layer](/assets/img/fix_session_layer/osi_session_layer.jpg)
+Image Reference - [Data Networks - MIT](https://web.mit.edu/modiano/www/6.263/Lecture1.pdf)
+
+FIX session can exist multiple sequential FIX connections. FIX connection can be terminated due to various reasons such as application or network outages.
+But the FIX session can continue after re-establishing the FIX connection. 
+There are various means provided in the FIX session layer specification to recover the session as well.
+Such as **NextNumIn**, **NextNumOut***, **Retransmission**, **Gap-Fill** and **Resend** of messages. 
+
+![Session exists across sequential connections](/assets/img/fix_session_layer/session_lives_across_connections.png)
+
+Image Reference - [Session Across Sequential Connections](https://www.fixtrading.org/standards/fix-session-layer-online/)
+
+Even though FIX session usually exists for agreed time-span by two peers (acceptor and initiator). It can be weekly or daily sessions. 
+This weekly and daily session timing are agreed by **out-of-band** communications. Which means no session layer message will specify the duration of the session.
+Which we called the **in-band** communication. But two counterparties agree upon session timing as part of their service level agreement. 
+
+Since I briefly mention in-band communication. Example for **in-band** communication is heart beat interval. Which used by peers to check on each other's live-ness.
+HeartBtInt(tag 108) is set in initiators logon request (35=A) to specify this value. Hence, its in-band communication. 
+
+
+## Important out-of-band parameters 
+
+TestRequestThreshold, SendingTimeThreshold , LogOutAckThreshold
 
 # Establishing Connection 
 
@@ -20,13 +48,12 @@ author: Isuru
 2. Acceptance with optional authentication
 3. Message synchronization 
 
-
 # Testing the spec
 
 ## Heartbeat interval determination
 
 QuickFIXJ implementation of heart beat interval determination, is to specify it in the HeartBtInt(108) tag of the logon request (35=A) send by the initiator.
-This is as per FIX session layer implementation guide. Although its worth noting the session layer specification allow other methods as well. 
+This is as per FIX session layer implementation guide. Although its worth noting that the session layer specification allow other methods as well. 
 
 [QFJ Configuration - Initiator](https://www.quickfixj.org/usermanual/2.3.0/usage/configuration.html#Initiator)
 
