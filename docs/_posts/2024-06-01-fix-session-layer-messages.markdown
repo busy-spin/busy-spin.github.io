@@ -76,6 +76,12 @@ Configuration   | Description                                              | Val
 ---             |----------------------------------------------------------| ---
 HeartBtInt      | Heartbeat interval in seconds. Only used for initiators.	|  positive integer	
 
+Following is a QFJ log from the perspective of the accepting peer. HeartBtInt configuration is mandatory for QFJ initiator peer.
+Acceptor will switch to the heart beat interval set by the initiator in the logon request.
+
+![QFJ HeartBtInt determination](/assets/img/fix_session_layer/heartbtint_determination.png)
+
+Above screenshot is from the output of the [fix-shell](https://github.com/busy-spin/fix-protocol-showcase)
 
 
 # References
