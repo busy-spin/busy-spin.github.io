@@ -30,6 +30,19 @@ Such as **NextNumIn**, **NextNumOut***, **Retransmission**, **Gap-Fill** and **R
 
 Image Reference - [Session Across Sequential Connections](https://www.fixtrading.org/standards/fix-session-layer-online/)
 
+## Establishing FIX Connection
+
+Establishing FIX connection has three parts.
+
+1. Transport Layer Connection
+2. Acceptance with optional authentication
+3. Message synchronization
+
+Due to number 2 and 3 steps. Some experts argue that FIX is an all-in-one protocol. 
+Mixing the session layer with connection layer. To establish a FIX connection peers should accept the session and sync the messages, sounds counterintuitive right. 
+
+## FIX session time-span
+
 FIX session usually exists for agreed time-span by two peers (acceptor and initiator). It can be weekly or daily sessions. 
 This weekly and daily session timing are agreed by **out-of-band** communications. Which means no session layer message will specify the duration of the session.
 Which we called the **in-band** communication. Two counterparties agree upon session timing as part of their rules of engagement. 
@@ -47,15 +60,8 @@ Configuration               | Description
 ---                         |---
 TestRequestThreshold        | Amount of time expressed as a multiplier of heartbeat interval before TestRequest(35=1) send to the peer.		
 SendingTimeThreshold        | Amount of time expressed in seconds in which SendingTime(tag 52) in an inbound message can differ from system time of the receiving peer. 
-LogOutAckThreshold          | Amount of time express in seconds where FIX peer who has sent Logout(35=5) will wait for its peer to reply with Acknowledgement, if execeed it will terminate the transport layer connection. 
+LogOutAckThreshold          | Amount of time express in seconds where FIX peer who has sent Logout(35=5) will wait for its peer to reply with Acknowledgement, if execeed it will terminate the transport layer connection.
 
-TestRequestThreshold, SendingTimeThreshold , LogOutAckThreshold
-
-# Establishing Connection 
-
-1. Transport Layer Connection
-2. Acceptance with optional authentication
-3. Message synchronization 
 
 # Testing the spec
 
