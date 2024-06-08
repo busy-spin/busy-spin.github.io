@@ -83,6 +83,13 @@ Acceptor will switch to the heart beat interval set by the initiator in the logo
 
 Above screenshot is from the output of the [fix-shell](https://github.com/busy-spin/fix-protocol-showcase)
 
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
 
 # References
 
