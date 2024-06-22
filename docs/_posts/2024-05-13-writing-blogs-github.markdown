@@ -3,6 +3,7 @@ layout: post
 title:  "Web-log (a.k.a blog) using GitHub pages"
 date:   2024-05-13 14:00:00 +0800
 categories: top scratch
+mermaid: true
 author: Isuru
 ---
 
@@ -61,6 +62,34 @@ bundle exec jekyll serve
 ```
 
 Jekyll process has a file watcher so once you update the content it will auto compile it to html code. 
+
+
+## Extras
+
+### Adding mermaid flow chart support for GitHub pages.
+
+[mermaid.js](https://mermaid.live/) chart support is available by default in GitHub wiki, GitHub projects. 
+But enabling [mermaid.js](https://mermaid.live/) for GitHub pages is not supported out of box and also not trivial to enable. 
+I found this neat trick from fellow GitHub blogger [jackgrubber](https://github.com/JackGruber/jackgruber.github.io) - [Embed-Mermaid-in-Jekyll-without-plugin](https://jackgruber.github.io/2021-05-09-Embed-Mermaid-in-Jekyll-without-plugin/).
+
+<pre>
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```  
+</pre> 
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```  
+
 
 # Other Helpful References
 
