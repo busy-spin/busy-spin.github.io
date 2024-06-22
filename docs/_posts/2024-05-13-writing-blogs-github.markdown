@@ -64,9 +64,9 @@ bundle exec jekyll serve
 Jekyll process has a file watcher so once you update the content it will auto compile it to html code. 
 
 
-## Extras
+# Extras
 
-### Adding mermaid flow chart support for GitHub pages.
+## Adding mermaid flow chart support for GitHub pages.
 
 [mermaid.js](https://mermaid.live/) chart support is available by default in GitHub wiki, GitHub projects. 
 But enabling [mermaid.js](https://mermaid.live/) for GitHub pages is not supported out of box and also not trivial to enable. 
