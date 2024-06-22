@@ -74,20 +74,22 @@ I found this neat trick from fellow GitHub blogger [jackgrubber](https://github.
 
 <pre>
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart TD
+    A[Learn difficult concepts] -->|Create Experiment| B{Experiment}
+    B --> | Too hard to understand | C[Read more and write about it]
+    B --> | Got a good grip of concept | D[Write about it]
+    C --> | Experiment Again | B
+    D --> | Level up again | A
 ```  
 </pre> 
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart TD
+    A[Learn difficult concepts] -->|Create Experiment| B{Experiment}
+    B --> | Too hard to understand | C[Read more and write about it]
+    B --> | Got a good grip of concept | D[Write about it]
+    C --> | Experiment Again | B
+    D --> | Level up again | A
 ```  
 
 
