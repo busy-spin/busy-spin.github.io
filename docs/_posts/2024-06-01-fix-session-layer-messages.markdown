@@ -63,9 +63,7 @@ SendingTimeThreshold        | Amount of time expressed in seconds in which Sendi
 LogOutAckThreshold          | Amount of time express in seconds where FIX peer who has sent Logout(35=5) will wait for its peer to reply with Acknowledgement, if execeed it will terminate the transport layer connection.
 
 
-# Testing the spec
-
-## Heartbeat interval determination
+# Heartbeat interval determination
 
 QuickFIXJ implementation of heart beat interval determination, is to specify it in the HeartBtInt(108) tag of the logon request (35=A) send by the initiator.
 This is as per FIX session layer implementation guide. Although its worth noting that the session layer specification allow other methods as well. 
@@ -82,6 +80,36 @@ Acceptor will switch to the heart beat interval set by the initiator in the logo
 ![QFJ HeartBtInt determination](/assets/img/fix_session_layer/heartbtint_determination.png)
 
 Above screenshot is from the output of the [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell)
+
+# Message Recovery
+
+<pre>
+fix-shell>i print-num
+FIX.4.4:TAKER_FIRM->EXCHANGE
+┏━━━━━━━━━━┳━━━┓
+┃NextNumOut┃40 ┃
+┣━━━━━━━━━━╋━━━┫
+┃NextNumIn ┃100┃
+┗━━━━━━━━━━┻━━━┛
+
+
+fix-shell>a print-num
+FIX.4.4:EXCHANGE->TAKER_FIRM
+┏━━━━━━━━━━┳━━━┓
+┃NextNumOut┃100┃
+┣━━━━━━━━━━╋━━━┫
+┃NextNumIn ┃3  ┃
+┗━━━━━━━━━━┻━━━┛
+
+</pre>
+
+# Best Practices
+
+# Always send a TestRequest(35=1) upon Login(35=A)
+
+Initiator and Acceptor require to perform message synchronization after each peer received the logon request, and logon request 
+SequenceNumber does not match with the expected NextNumIn for the respective peer. A good practice is to send TestRequest(35=1) to force message synchronization 
+the peer to send a HeartBeat(35=0), before sending any queued application level messages. 
 
 # References
 
