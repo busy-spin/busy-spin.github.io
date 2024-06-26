@@ -83,25 +83,22 @@ Above screenshot is from the output of the [qfj-fix-shell](https://github.com/bu
 
 # Message Recovery
 
-<pre>
-fix-shell>i print-num
-FIX.4.4:TAKER_FIRM->EXCHANGE
-┏━━━━━━━━━━┳━━━┓
-┃NextNumOut┃40 ┃
-┣━━━━━━━━━━╋━━━┫
-┃NextNumIn ┃100┃
-┗━━━━━━━━━━┻━━━┛
+## Acceptor requires retransmission of messages from initiator
+
+Let's take a scenario where Initiator's NextNumOut is larger number than the Acceptor's NextNumIn.
+
+```
+    initiator.NextNumOut > acceaptor.NextNumIn 
+    initiator.NextNumIn = acceaptor.NextNumOut
+```
 
 
-fix-shell>a print-num
-FIX.4.4:EXCHANGE->TAKER_FIRM
-┏━━━━━━━━━━┳━━━┓
-┃NextNumOut┃100┃
-┣━━━━━━━━━━╋━━━┫
-┃NextNumIn ┃3  ┃
-┗━━━━━━━━━━┻━━━┛
+![Sequence Numbers](/assets/img/fix_session_layer/recovery_1_sequence_numbers.png)
 
-</pre>
+
+### Recovery process
+
+![Message Recovery](/assets/img/fix_session_layer/recovery_1_fix_log.png)
 
 # Best Practices
 
