@@ -25,7 +25,7 @@ This post is a **TL;DR** and a compilation of sources for more details.
 
 # Solution 1 - Self Hosting
 
-[Jekyll](https://jekyllrb.com/) is site generator. You can write content for your site using markdown format. 
+[Jekyll](https://jekyllrb.com/) is site generator where you can write content for your site using markdown format. 
 There are many [themes](https://jekyllrb.com/docs/themes/) available as well, to bootstrap your site code. 
 I used to host my blog by running jekyll server on [Amazon EC2](https://aws.amazon.com/pm/ec2/) instance and using
 [AWS Route 53](https://aws.amazon.com/route53/) Authoritative DNS server to route traffic to the [public IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses) of my EC2 instance. 
