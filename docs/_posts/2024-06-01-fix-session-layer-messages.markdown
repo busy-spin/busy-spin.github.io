@@ -83,7 +83,17 @@ Above screenshot is from the output of the [qfj-fix-shell](https://github.com/bu
 
 # Message Recovery
 
-## Acceptor requires retransmission of messages from initiator
+FIX message synchronization after logon request has been send considered to be recoverable if following is true.
+
+```
+peer1.NextNumOut >= peer2.NextNumIn & peer2.NextNumOut >= peer1.NextNumIn
+```
+
+What this means is peer's NextNumOut should be always equal or smaller than other peer's expected NextNumIn. 
+If there is need for message synchronization, then it can be done using ResendRequest(35=2) and SequenceReset(35=4) messages which 
+follows the Logon(35=A) messages.  
+
+## Scenario 1 - Acceptor requires retransmission of messages from initiator
 
 Let's take a scenario where Initiator's NextNumOut is larger number than the Acceptor's NextNumIn.
 
@@ -94,6 +104,10 @@ Let's take a scenario where Initiator's NextNumOut is larger number than the Acc
 
 
 ![Sequence Numbers](/assets/img/fix_session_layer/recovery_1_sequence_numbers.png)
+
+Above figure shows a scenario I have created using [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell).
+Where initiator's NextNumIn and acceptor's NextNumOut matches(83), but initiator's NextNumOut (199) is larger than acceptor's NextNumIn (20).
+
 
 
 ### Recovery process
