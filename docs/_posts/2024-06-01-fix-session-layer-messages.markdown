@@ -24,7 +24,7 @@ Image Reference - [Data Networks - MIT](https://web.mit.edu/modiano/www/6.263/Le
 FIX session can exist multiple sequential FIX connections. FIX connection can be terminated due to various reasons such as application or network outages.
 But the FIX session can continue after re-establishing the FIX connection. 
 There are various means provided in the FIX session layer specification to recover the session as well.
-Such as **NextNumIn**, **NextNumOut***, **Retransmission**, **Gap-Fill** and **Resend** of messages. 
+Such as keeping track of **NextNumIn**, **NextNumOut**, **Retransmission**, **Gap-Fill** and **Resend** of messages. 
 
 ![Session exists across sequential connections](/assets/img/fix_session_layer/session_lives_across_connections.png)
 
@@ -38,8 +38,6 @@ Establishing FIX connection has three parts.
 2. Acceptance with optional authentication
 3. Message synchronization
 
-Due to number 2 and 3 steps. Some experts argue that FIX is an all-in-one protocol. 
-Mixing the session layer with connection layer. To establish a FIX connection peers should accept the session and sync the messages, sounds counterintuitive right. 
 
 ## FIX session time-span
 
@@ -65,8 +63,11 @@ LogOutAckThreshold          | Amount of time express in seconds where FIX peer w
 
 # Heartbeat interval determination
 
-QuickFIXJ implementation of heart beat interval determination, is to specify it in the HeartBtInt(108) tag of the logon request (35=A) send by the initiator.
-This is as per FIX session layer implementation guide. Although its worth noting that the session layer specification allow other methods as well. 
+In QuickFIXJ initiator will specify the HeartBtInt(108) tag in the logon request (35=A).
+Acceptor which may or may not be QuickFIXJ based implementation, will also send HeartBeatInt(108) in its logon request. 
+Acceptor may echo back the value send by the initiator, or send a different value. Or it can even reject the logon request. 
+Initiator can also reject the logon message send by acceptor if it does not agree with the amend for the HeartBeatInt.
+ 
 
 [QFJ Configuration - Initiator](https://www.quickfixj.org/usermanual/2.3.0/usage/configuration.html#Initiator)
 
@@ -83,10 +84,11 @@ Above screenshot is from the output of the [qfj-fix-shell](https://github.com/bu
 
 # Message Recovery
 
-FIX message synchronization after logon request has been send considered to be recoverable if following is true.
+FIX message synchronization after logon request has been send considered to be recoverable if the followings are true.
 
 ```
-peer1.NextNumOut >= peer2.NextNumIn & peer2.NextNumOut >= peer1.NextNumIn
+peer1.NextNumOut >= peer2.NextNumIn
+peer2.NextNumOut >= peer1.NextNumIn
 ```
 
 What this means is peer's NextNumOut should be always equal or smaller than other peer's expected NextNumIn. 
@@ -108,11 +110,32 @@ Let's take a scenario where Initiator's NextNumOut is larger number than the Acc
 Above figure shows a scenario I have created using [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell).
 Where initiator's NextNumIn and acceptor's NextNumOut matches(83), but initiator's NextNumOut (199) is larger than acceptor's NextNumIn (20).
 
+Let's assume on the initiator side message sequence for un-synced outgoing messages would look like this.
 
+Sequence Number(s) | Type of Message
+----               | ---
+20-152             | Session Layer Messages
+153                | Application Layer Message
+154                | Session Layer Message
+155                | Application Layer Message
+156-199            | Session Layer Messages
 
 ### Recovery process
 
 ![Message Recovery](/assets/img/fix_session_layer/recovery_1_fix_log.png)
+
+Step    | Remark 
+---     | ---
+1       | Initiator send logon(35=A) request
+2       | Acceptor respond with logon(35=A) request
+3       | Acceptor resend reqeust (35=2) for missing messages between 20 to **infinity** BeginSeqNo<7>=20 and EndSeqNo<16>=0.
+4       | Initiator send sequence reset (35=4) with NewSeqNo<36>=153 and GapFill<123>=Y. Reason is there is no application messages till sequence number 152
+5       | Initiator send application message NewOrderSingle(35=D) with PossDupFlag<43>=Y to denote that this is possible duplicate message.
+6       | Initiator send sequence reset (35=4) with NewSeqNo<36>=155 and GapFill<123>=Y. Reason is there is no application messages till sequence number 154
+7       | Initiator send applicatoin message NewOrderSingle(35=D) with PossDupFlag<43>=Y to denote that this is possible duplicate message.
+8       | Initiator send sequence reset (35=4) with NewSeqNo<36>=200 and GapFill<123>=Y. Reason is there is no application messages till sequence number 199
+9       | Acceptor send HeartBeat message (35=0), and conclude the message recovery
+
 
 # Best Practices
 
