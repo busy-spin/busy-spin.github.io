@@ -35,6 +35,7 @@ header_pages:
   - scratch.md
   - tools-belt.md
   - kdb-q.md
+  - productivity.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.

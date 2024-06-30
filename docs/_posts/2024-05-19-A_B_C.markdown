@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "A B C methodology"
+date:   2024-06-29 13:00:00 +0800
+categories: productivity
+author: Isuru
+---
+
+# A B C methodology for achieving Goals 
+
+## TL;DR
+
+There are countless times in my life I have set big goals. Then made perfect plans that should work like clock works.
+It was exciting to do goal setting, even more exciting to list down how I should execute that plan daily, 
+later to only find out that, I am a fragile humans living in chaotic world of distraction.
+But irrespective of perfect plans works or not, accumulated effort always brings us closer to the goals and sometimes helps us achieve these goals. 
+However, constant feel of regret of not been able to execute the perfect plan is a daily mood killer. 
+
+A B C methodology is something I came across recently. It sounds rationale and relatable to me. 
+
+## Why perfect plans don't work
+
+When we create plans, we don't take into account the daily nuance. Each day is not the same. 
+If you create a plan that involve shifting between activities with minute perfection. 
+Its unlikely you are going to achieve this daily basis. 
+Sometime these plans are way too hardcore.
+
+## Add a little imperfection
+
+Sometime little imperfection improve things. What if you create a plan that there is harmony between perfection and imperfection.
+Add a little flaw deliberately, to make your self wonder. Keep things interesting and make the effort more sustainable.
+
+![Imperfection Imporvement](/assets/img/a_b_c/sheldon.png)
+
+## A-B-C Methodology 
+
+A-B-C methodology was introduced to me in [Sahil Bloom](https://www.youtube.com/@Sahil_Bloom) video [My System for UNBREAKABLE Goal Setting](https://www.youtube.com/watch?v=JvYsD_bM-RM).
+And I got here thanks to the best channel for productivity [Ali Abdaal](https://www.youtube.com/@aliabdaal), and this particular video [5 Easy Ways to Become More Self-Disciplined](https://www.youtube.com/watch?v=IFSMQJCda10).
+
+
+
