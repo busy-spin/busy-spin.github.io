@@ -136,6 +136,48 @@ Step    | Remark
 8       | Initiator send sequence reset (35=4) with NewSeqNo<36>=200 and GapFill<123>=Y. Reason is there is no application messages till sequence number 199
 9       | Acceptor send HeartBeat message (35=0), and conclude the message recovery
 
+## Scenario 2 - Initiator requires retransmission of messages from acceptor
+
+Let's take a scenario where Initiator's NextNumOut is larger number than the Acceptor's NextNumIn.
+
+```
+    initiator.NextNumOut = acceaptor.NextNumIn 
+    initiator.NextNumIn < acceaptor.NextNumOut
+```
+
+
+![Sequence Numbers](/assets/img/fix_session_layer/recovery_2_sequence_numbers.png)
+
+Above figure shows a scenario I have created using [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell).
+Where initiator's NextNumOut and acceptor's NextNumIn matches(121), but initiator's NextNumIn (50) is smaller than acceptor's NextNumIn (122).
+
+Let's assume on the acceptor side message sequence for un-synced outgoing messages would look like this.
+
+Sequence Number(s) | Type of Message
+----               | ---
+50-63              | Session Layer Messages
+64                 | Application Layer Message
+65-73              | Session Layer Message
+74                 | Application Layer Message
+75-122             | Session Layer Messages
+
+### Recovery process
+
+![Message Recovery](/assets/img/fix_session_layer/recovery_2_fix_log.png)
+
+Step    | Remark 
+---     | ---
+1       | Initiator send logon(35=A) request
+2       | Acceptor respond with logon(35=A) request
+3       | Initiator resend reqeust (35=2) for missing messages between 50 to **infinity** BeginSeqNo<7>=50 and EndSeqNo<16>=0.
+4       | Acceptor send sequence reset (35=4) with NewSeqNo<36>=64 and GapFill<123>=Y. Reason is there is no application messages till sequence number 63
+5       | Acceptor send application message ExecutionReport(35=8) with PossDupFlag<43>=Y to denote that this is possible duplicate message.
+6       | Acceptor send sequence reset (35=4) with NewSeqNo<36>=74 and GapFill<123>=Y. Reason is there is no application messages till sequence number 73
+7       | Acceptor send applicatoin message ExecutionReport(35=8) with PossDupFlag<43>=Y to denote that this is possible duplicate message.
+8       | Acceptor send sequence reset (35=4) with NewSeqNo<36>=123 and GapFill<123>=Y. Reason is there is no application messages till sequence number 122
+9       | Acceptor send HeartBeat message (35=0), and conclude the message recovery
+
+
 
 # Best Practices
 
