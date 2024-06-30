@@ -28,14 +28,73 @@ Sometime these plans are way too hardcore.
 ## Add a little imperfection
 
 Sometime little imperfection improve things. What if you create a plan that there is harmony between perfection and imperfection.
-Add a little flaw deliberately, to make your self wonder. Keep things interesting and make the effort more sustainable.
+Add a little flaw deliberately, to free up sometime for your self to wonder. Keep things interesting and make the effort more sustainable.
 
 ![Imperfection Imporvement](/assets/img/a_b_c/sheldon.png)
 
 ## A-B-C Methodology 
 
 A-B-C methodology was introduced to me in [Sahil Bloom](https://www.youtube.com/@Sahil_Bloom) video [My System for UNBREAKABLE Goal Setting](https://www.youtube.com/watch?v=JvYsD_bM-RM).
-And I got here thanks to the best channel for productivity [Ali Abdaal](https://www.youtube.com/@aliabdaal), and this particular video [5 Easy Ways to Become More Self-Disciplined](https://www.youtube.com/watch?v=IFSMQJCda10).
+And I got here thanks to the best channel for productivity tips [Ali Abdaal](https://www.youtube.com/@aliabdaal), and this particular video [5 Easy Ways to Become More Self-Disciplined](https://www.youtube.com/watch?v=IFSMQJCda10).
+
+Type    |  Remark
+---     |   ---
+A       |   Most optimal plan, Very ambitious
+---     |   ---
+B       |   Something you can achieve average day
+---     |    ---
+C       |   Something within your control to achieve in a worse day
+---     |    ---
+
+A-days are for me is weekend's, 1 off day from work, or public holiday. B-days are my regular office work day.
+And C-days are either I'm travelling, ill or I have to attend my family, or a very long working day.
+
+### A-B-C plans **Be Fit Goal**
+
+Type    |  Remark
+---     |   ---
+A       |   Work out 1 hour in the gym 4 sets 5 excercises followed by inclined walk for 15 minutes in the treadmill
+---     | ---
+B       |   Moderate excersice for 25 mins. Cycling back home from work, swiming, running
+---     | ---
+C       |   Make 6000 steps 
+---     | ---
+
+### A-B-C plans **Loose Weight Goal**
+
+Type    |  Remark
+---     |   ---
+A       |   Eat less than 1000 kcal a day. No sugar and less than 2000mg salt.
+---     | ---
+B       |   Eat less than 1500 kcal a day, just bellow my [BMR](https://www.garnethealth.org/news/basal-metabolic-rate-calculator#:~:text=Cardiology%20%2C%20Health%20%26%20Wellness,stayed%20in%20bed%20all%20day.)
+---     | ---
+C       |   Eat less than 2500 kcal a day, for the day where I can no longer resist that beef burger. Or once in a while buffet in a wedding.
+---     | ---
+
+### A-B-C plans **Master my craft**
+
+Type    |  Remark
+---     |   ---
+A       |   Study for 4 hours. Read research papers, make blog post and make a pull request to opensource project
+---     | ---
+B       |   Study for 90 mins. Read something less challenging to grasp.
+---     | ---
+C       |   Study for 30 mins. Read a chapter or so. Watch a video from [GOTO Conference](https://www.youtube.com/@GOTO-). 
+---     | ---
+
+## A-B-C Goal Granularity
+
+And this methodology can be made goal granular. You may have multiple goals at the same time.
+For and example I had goal **1** to master raft-protocol and sametime had a goal **2** to lose weight by 2kgs in 2 months. 
+A C-day for 1 can be A-day for goal 2. I don't have to kill my self in a single day to make them A-day for all my goals.
+
+
+## A-B-C Goal Granularity Setting
+
+Just to elaborate this further, this is an example of a past week how A-B-C took place across multiple goals.
+
+Goal    | Day of the week | Type of Plan
+---     | ---             | ---
 
 
 
