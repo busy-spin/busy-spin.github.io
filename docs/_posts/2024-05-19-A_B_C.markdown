@@ -98,7 +98,7 @@ C       |   Spend 30 minutes. Watch a video together with my wife or read a book
 
 And this methodology can be made goal granular. You may have multiple goals at the same time.
 For and example I had goal **1** to master raft-protocol and sametime had a goal **2** to lose weight by 2kgs in 2 months. 
-A C-day for 1 can be A-day for goal 2. I don't have to kill my self in a single day to make them A-day for all my goals.
+A C-day for goal 1 can be A-day for goal 2. I don't have to kill my self in a single day to make them A-day for all my goals.
 
 
 ## A-B-C Goal Granularity Setting
