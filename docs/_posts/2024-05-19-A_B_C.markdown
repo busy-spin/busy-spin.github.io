@@ -23,11 +23,11 @@ A B C methodology is something I came across recently. It sounds rationale and r
 When we create plans, we don't take into account the daily nuance. Each day is not the same. 
 If you create a plan that involve shifting between activities with minute perfection. 
 Its unlikely you are going to achieve this daily basis. 
-Sometime these plans are way too hardcore.
+Sometimes these plans are way too hardcore.
 
 ## Add a little imperfection
 
-Sometime little imperfection improve things. What if you create a plan that there is harmony between perfection and imperfection.
+Sometimes little imperfection improve things. What if you create a plan that there is harmony between perfection and imperfection.
 Add a little flaw deliberately, to free up sometime for your self to wonder. Keep things interesting and make the effort more sustainable.
 
 ![Imperfection Imporvement](/assets/img/a_b_c/sheldon.png)
@@ -41,7 +41,7 @@ Type    |  Remark
 ---     |   ---
 A       |   Most optimal plan, Very ambitious
 ---     |   ---
-B       |   Something you can achieve average day
+B       |   Something you can achieve on average day
 ---     |    ---
 C       |   Something within your control to achieve in a worse day
 ---     |    ---
@@ -68,19 +68,31 @@ A       |   Eat less than 1000 kcal a day. No sugar and less than 2000mg salt.
 ---     | ---
 B       |   Eat less than 1500 kcal a day, just bellow my [BMR](https://www.garnethealth.org/news/basal-metabolic-rate-calculator#:~:text=Cardiology%20%2C%20Health%20%26%20Wellness,stayed%20in%20bed%20all%20day.)
 ---     | ---
-C       |   Eat less than 2500 kcal a day, for the day where I can no longer resist that beef burger. Or once in a while buffet in a wedding.
+C       |   Eat less than 2500 kcal a day, for those days where I can no longer resist that beef burger. Or once in a while buffet at a wedding.
 ---     | ---
 
 ### A-B-C plans **Master my craft**
 
 Type    |  Remark
 ---     |   ---
-A       |   Study for 4 hours. Read research papers, make blog post and make a pull request to opensource project
+A       |   Study for 4 hours. Read research papers, make a blog post and make a pull request to an opensource project
 ---     | ---
 B       |   Study for 90 mins. Read something less challenging to grasp.
 ---     | ---
 C       |   Study for 30 mins. Read a chapter or so. Watch a video from [GOTO Conference](https://www.youtube.com/@GOTO-). 
 ---     | ---
+
+### A-B-C plans **Bonding with my family**
+
+Type    |  Remark
+---     |   ---
+A       |   Spend quality 4 hours with my daugther and wife. Go cycling, swiming, playgroud or library together
+---     | ---
+B       |   Spend 90 minutes with my family. Teach my daughter how to ride bicycle. Go to play ground. 
+---     | ---
+C       |   Spend 30 minutes. Watch a video together with my wife or read a book to my kid. 
+---     | ---
+
 
 ## A-B-C Goal Granularity
 
@@ -93,8 +105,99 @@ A C-day for 1 can be A-day for goal 2. I don't have to kill my self in a single 
 
 Just to elaborate this further, this is an example of a past week how A-B-C took place across multiple goals.
 
-Goal    | Day of the week | Type of Plan
----     | ---             | ---
+### Be-Fit Goal        
 
+Day of the week | Type of Plan
+---             | ---
+Sunday          | A
+---             | ---
+Monday          | B
+---             | ---
+Tuesday         | B
+---             | ---
+Wednesday       | B
+---             | ---
+Thursday        | B
+---             | ---
+Friday          | B
+---             | ---
+Saturday        | A
+---             | ---
+Off-day         | A
+---             | ---
+
+### Loose Weight Goal
+
+Day of the week | Type of Plan
+---             | ---
+Sunday          | B
+---             | ---
+Monday          | A
+---             | ---
+Tuesday         | B
+---             | ---
+Wednesday       | A
+---             | ---
+Thursday        | B
+---             | ---
+Friday          | B
+---             | ---
+Saturday        | B
+---             | ---
+Off-day         | B
+---             | ---
+
+
+## Master my craft goal         
+
+Day of the week | Type of Plan
+---             | ---
+Sunday          | A
+---             | ---
+Monday          | B
+---             | ---
+Tuesday         | B
+---             | ---
+Wednesday       | B
+---             | ---
+Thursday        | B
+---             | ---
+Friday          | B
+---             | ---
+Saturday        | A
+---             | ---
+Off-day         | A
+---             | ---
+
+## Bonding with family goal
+
+Day of the week | Type of Plan
+---             | ---
+Sunday          | A
+---             | ---
+Monday          | B
+---             | ---
+Tuesday         | B
+---             | ---
+Wednesday       | B
+---             | ---
+Thursday        | B
+---             | ---
+Friday          | B
+---             | ---
+Saturday        | A
+---             | ---
+Off-day         | B
+---             | ---
+
+It's inevitable that certain days like weekend and off-days we are going to stack up more A days. 
+Specially when it comes to family, fitness and self-study. But those are also the days when we have more free time than busy office day.
+
+## Final word
+
+Adding a little bit of imperfection, giving your self enough room to be normal actually could make you enjoy reaching your goals.
+A perfect balance of rigid schedule and a flexibility.
+
+![Imperfection Imporvement](/assets/img/a_b_c/yinyang.png)
 
 
