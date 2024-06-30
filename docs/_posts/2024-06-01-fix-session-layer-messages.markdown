@@ -149,7 +149,7 @@ Let's take a scenario where Initiator's NextNumOut is larger number than the Acc
 ![Sequence Numbers](/assets/img/fix_session_layer/recovery_2_sequence_numbers.png)
 
 Above figure shows a scenario I have created using [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell).
-Where initiator's NextNumOut and acceptor's NextNumIn matches(121), but initiator's NextNumIn (50) is smaller than acceptor's NextNumIn (122).
+Where initiator's NextNumOut and acceptor's NextNumIn matches(121), but initiator's NextNumIn (50) is smaller than acceptor's NextNumOut (122).
 
 Let's assume on the acceptor side message sequence for un-synced outgoing messages would look like this.
 
@@ -176,6 +176,56 @@ Step    | Remark
 7       | Acceptor send applicatoin message ExecutionReport(35=8) with PossDupFlag<43>=Y to denote that this is possible duplicate message.
 8       | Acceptor send sequence reset (35=4) with NewSeqNo<36>=123 and GapFill<123>=Y. Reason is there is no application messages till sequence number 122
 9       | Acceptor send HeartBeat message (35=0), and conclude the message recovery
+
+## Scenario 3 - Both initiator requires retransmission of messages from acceptor
+
+Let's take a scenario where Initiator's NextNumOut is larger number than the Acceptor's NextNumIn.
+
+```
+    initiator.NextNumOut > acceaptor.NextNumIn 
+    initiator.NextNumIn < acceaptor.NextNumOut
+```
+
+
+![Sequence Numbers](/assets/img/fix_session_layer/recovery_3_sequence_numbers.png)
+
+Above figure shows a scenario I have created using [qfj-fix-shell](https://github.com/busy-spin/qfj-fix-shell).
+Where initiator's NextNumOut(59) is larger than acceptor's NextNumIn(46), and initiator's NextNumIn (43) is smaller than acceptor's NextNumOut (59).
+
+Let's assume on the acceptor side message sequence for un-synced outgoing messages would look like this.
+
+Sequence Number(s) | Type of Message
+----               | ---
+43-54              | Session Layer Messages
+55                 | Application Layer Message
+56-60              | Session Layer Message
+
+Let's assume on the initiator side message sequence for un-synced outgoing messages would look like this.
+
+Sequence Number(s) | Type of Message
+----               | ---
+46-49              | Session Layer Messages
+50                 | Application Layer Message
+51-60              | Session Layer Message
+
+
+### Recovery process
+
+![Message Recovery](/assets/img/fix_session_layer/recovery_3_fix_log.png)
+
+![Message Recovery - Part 2](/assets/img/fix_session_layer/recovery_3_fix_log_part2.png)
+
+Step    | Remark 
+---     | ---
+1       | Initiator send logon(35=A) request
+2       | Acceptor respond with logon(35=A) request
+3       | Acceptor send resend reqeust (35=2) for missing messages between 46 to **infinity** BeginSeqNo<7>=46 and EndSeqNo<16>=0.
+4       | Initiator send resend reqeust (35=2) for missing messages between 43 to **infinity** BeginSeqNo<7>=43 and EndSeqNo<16>=0.
+5       | Initiator send a gap fill message, followed by NewOrderSingle message
+6       | Acceptor send a gap fill message, followed by ExecutionReport message
+7       | Initiator send a gap fill message for session layer messages
+8       | Initiator send a gap fill message for session layer messages
+9       | Initiator and acceptor start heart beating to each other to conclude the message recovery
 
 
 
