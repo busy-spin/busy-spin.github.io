@@ -8,3 +8,6 @@ author: Isuru
 
 # [HDR Histogram](https://github.com/HdrHistogram/HdrHistogram)
 
+
+This post is a part of the [Tools Belt](https://isuruco.github.io/performance-engineering/tools-belt/) series.
+
