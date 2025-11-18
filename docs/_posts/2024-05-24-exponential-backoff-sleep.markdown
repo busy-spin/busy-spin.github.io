@@ -223,7 +223,3 @@ public class ExponentialBackOffIdleStrategy implements IdleStrategy {
     }
 }
 ```
-
-# References
-
-[Agrona Showdown](https://github.com/busy-spin/aeron-showdown/tree/main/agrona-agent-samples)
