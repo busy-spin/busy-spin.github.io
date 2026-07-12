@@ -18,12 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: busy-spin
+title: isuru's blog
 email: isurudevj@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This is about what I do for fun.
 twitter_username: isurudevj
-github_username:  busy-spin
+github_username:  isurudevj
 
 # Build settings
 theme: minima
